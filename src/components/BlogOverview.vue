@@ -1,29 +1,25 @@
 <template>
-  <div>
-    <h2>Welcome on the blog Overview</h2>
-    <md-card v-for="blog in blogs">
-      <md-card-header>
-        <div class="md-title">{{blog.title}}</div>
-      </md-card-header>
-
-      <md-card-content>
-        {{blog.text}}
-        <md-card-media>
-          <img :src="'http://strapi.schlenker.io' + blog['preview-image'].url">
-        </md-card-media>
-      </md-card-content>
-    </md-card>
+  <div class="m-4">
+    <h2>Unsere aktuellsten Blogs findest du hier</h2>
+    <div class="preview-container">
+      <blog-preview v-for="blog in blogs" :key="blog.id" :blog="blog"/>
+    </div>
   </div>
 </template>
 
 <script>
 import Strapi from 'strapi-sdk-javascript/build/main'
+import BlogPreview from '@/components/BlogPreview'
 
 export default {
   name: 'BlogOverview',
+  components: {BlogPreview},
   mounted () {
     const strapi = new Strapi('http://strapi.schlenker.io')
     strapi.getEntries('blogs').then((blogs) => {
+      this.blogs = this.blogs.concat(blogs)
+      this.blogs = this.blogs.concat(blogs)
+      this.blogs = this.blogs.concat(blogs)
       this.blogs = this.blogs.concat(blogs)
     })
   },
@@ -34,3 +30,11 @@ export default {
   }
 }
 </script>
+<style>
+.preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+</style>
