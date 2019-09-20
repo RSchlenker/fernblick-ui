@@ -9,7 +9,7 @@
       <md-card-content>
         {{blog.text}}
         <md-card-media>
-          <img :src="'http://schlenker.io:1337' + blog['preview-image'].url">
+          <img :src="'http://strapi.schlenker.io' + blog['preview-image'].url">
         </md-card-media>
       </md-card-content>
     </md-card>
@@ -22,7 +22,7 @@ import Strapi from 'strapi-sdk-javascript/build/main'
 export default {
   name: 'BlogOverview',
   mounted () {
-    const strapi = new Strapi('http://schlenker.io:1337')
+    const strapi = new Strapi('http://strapi.schlenker.io')
     strapi.getEntries('blogs').then((blogs) => {
       this.blogs = this.blogs.concat(blogs)
     })
