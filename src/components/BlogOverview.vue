@@ -8,25 +8,20 @@
 </template>
 
 <script>
-import Strapi from 'strapi-sdk-javascript/build/main'
 import BlogPreview from '@/components/BlogPreview'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'BlogOverview',
   components: {BlogPreview},
   mounted () {
-    const strapi = new Strapi('http://strapi.schlenker.io')
-    strapi.getEntries('blogs').then((blogs) => {
-      this.blogs = this.blogs.concat(blogs)
-      this.blogs = this.blogs.concat(blogs)
-      this.blogs = this.blogs.concat(blogs)
-      this.blogs = this.blogs.concat(blogs)
-    })
+    this.loadBlogs()
   },
-  data () {
-    return {
-      blogs: []
-    }
+  computed: {
+    ...mapGetters(['blogs'])
+  },
+  methods: {
+    ...mapActions(['loadBlogs'])
   }
 }
 </script>

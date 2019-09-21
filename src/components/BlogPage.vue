@@ -1,35 +1,27 @@
 <template>
-  <div v-if="showNotFound">The Blog you are looking for couldn't be found</div>
+  <div v-if="errorWhileLoadingBlog">The Blog you are looking for couldn't be found</div>
   <div v-else>
-    <h1>{{blog.title}}</h1>
+    <h1>{{activeBlog.title}}</h1>
     <hr/>
-    <vue-markdown :source="blog.text"></vue-markdown>
-<!--    <div v-for="picture in blog.pictures" :key="picture.id">-->
-<!--      <img :src="'http://strapi.schlenker.io' + picture.url">-->
-<!--    </div>-->
+    <vue-markdown :source="activeBlog.text"></vue-markdown>
   </div>
 </template>
 
 <script>
-import Strapi from 'strapi-sdk-javascript/build/main'
 import VueMarkdown from 'vue-markdown'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'BlogPage',
   components: {VueMarkdown},
-  data () {
-    return {
-      blog: {},
-      showNotFound: false
-    }
-  },
   mounted () {
-    const strapi = new Strapi('http://strapi.schlenker.io')
-    strapi.getEntry('blogs', this.$route.params.id).then((blog) => {
-      this.blog = blog
-    }).catch(() => {
-      this.showNotFound = true
-    })
+    this.loadBlog(this.$route.params.id)
+  },
+  computed: {
+    ...mapGetters(['activeBlog', 'errorWhileLoadingBlog'])
+  },
+  methods: {
+    ...mapActions(['loadBlog'])
   }
 }
 </script>
