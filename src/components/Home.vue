@@ -1,5 +1,5 @@
 <template>
-  <div class="m-5">
+  <div>
     <h1>Welcome on our blog!</h1>
     <p>This is obviously work in progress!</p>
   </div>
