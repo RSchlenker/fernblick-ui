@@ -8,6 +8,7 @@
 <script>
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
+import 'vue-css-donut-chart/dist/vcdonut.css'
 import Navbar from '@/components/Navbar'
 
 export default {
@@ -17,6 +18,16 @@ export default {
 </script>
 <style>
 body {
-  background-color: #f8f8f8;
+  background-color: #fbfcfb;
 }
+
+/*
+Color scheme
+Primary: #93B5B3
+Primay-light: #C8DAD3
+Primary-lighter: #fbfcfb
+
+Accent-hard: #FF502F
+Accent: #CD5555
+*/
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-info navbar-large">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-large navigation">
     <router-link class="navbar-brand" to="/"><h2>Fernblick</h2></router-link>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,7 +22,8 @@ export default {
 </script>
 
 <style>
-/*.navbar-large {*/
-/*  height: 7em;*/
-/*}*/
+.navigation {
+  background-color: #93B5B3 !important;
+  height: 8em;
+}
 </style>

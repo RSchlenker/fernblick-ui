@@ -4,16 +4,18 @@
     <div class="preview-container">
       <blog-preview v-for="blog in blogs" :key="blog.id" :blog="blog"/>
     </div>
+    <about-us-footer />
   </div>
 </template>
 
 <script>
 import BlogPreview from '@/components/BlogPreview'
 import { mapGetters, mapActions } from 'vuex'
+import AboutUsFooter from '@/components/AboutUsFooter'
 
 export default {
   name: 'BlogOverview',
-  components: {BlogPreview},
+  components: {AboutUsFooter, BlogPreview},
   mounted () {
     this.loadBlogs()
   },
