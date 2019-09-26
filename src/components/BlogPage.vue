@@ -3,7 +3,7 @@
   <div v-else class="blog-wrapper">
     <h1>{{activeBlog.title}}</h1>
     <hr/>
-    <blog-short-overview :data="activeBlog.shortoverview" />
+    <blog-short-overview :short-information="activeBlog.shortoverview" />
     <vue-markdown :source="activeBlog.text"></vue-markdown>
     <about-us-footer/>
   </div>

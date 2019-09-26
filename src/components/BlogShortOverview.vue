@@ -1,15 +1,15 @@
 <template>
   <div>
     <div>Auf einen Blick:</div>
-    <div class="overview-wrapper">
+    <div v-if="shortInformation" class="overview-wrapper">
       <div class="card short-info">
         <div class="card-body donut-card-body">
-          <vc-donut :size="50" unit="px" :sections="timeNeeded" :total="12 * 60">{{data['time-needed']}}min</vc-donut>
+          <vc-donut :size="65" :thickness="30" unit="px" :sections="timeNeeded" :total="12 * 60">{{shortInformation['time-needed']}}min</vc-donut>
         </div>
       </div>
       <div class="card short-info">
         <div class="card-body donut-card-body">
-          <vc-donut :size="50" unit="px" :sections="timeRecommended" :total="12 * 60">{{data['time-recommended']}}min</vc-donut>
+          <vc-donut :size="65" :thickness="30" unit="px" :sections="timeRecommended" :total="10 * 60">{{shortInformation['time-recommended']}}min</vc-donut>
         </div>
       </div>
       <div class="card short-info">
@@ -33,16 +33,26 @@ Vue.use(Donut)
 export default {
   name: 'BlogShortOverview',
   props: {
-    data: {
+    shortInformation: {
       required: true
     }
   },
-  data () {
-    return {
-      timeNeeded: [{ value: this.data['time-needed'], color: '#17a2b8' }],
-      timeRecommended: [{ value: this.data['time-recommended'], color: '#2eb859' }]
+  computed: {
+    timeNeeded() {
+      if (this.shortInformation) {
+        return [{ value: this.shortInformation['time-needed'], color: '#CD5555' }]
+      } else {
+        return []
+      }
+    },
+    timeRecommended() {
+      if (this.shortInformation) {
+        return [{ value: this.shortInformation['time-recommended'], color: '#2fab60' }]
+      } else {
+        return []
+      }
     }
-  }
+  },
 }
 </script>
 
@@ -54,8 +64,9 @@ export default {
   justify-content: start;
 }
 .short-info {
-  height: 5em;
-  width: 5em;
+  margin: 1em 0.5em;
+  height: 7em;
+  width: 7em;
 }
 .donut-card-body {
   padding-top: 0.6em;
