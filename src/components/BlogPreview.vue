@@ -21,7 +21,7 @@ export default {
 }
 </script>
 <style>
-a,a:hover {
+.blog-preview-card a, .blog-preview-card a:hover {
   color: #323232;
   text-decoration: none !important; /* no underline */
 }

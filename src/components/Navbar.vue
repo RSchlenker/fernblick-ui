@@ -11,6 +11,9 @@
           <router-link class="nav-link" to="/blogs">Blogs</router-link>
         </li>
       </ul>
+      <div class="float-right navbar-brand">
+        <vue-material-icon name="public" :size="80"></vue-material-icon>
+      </div>
     </div>
   </nav>
 </template>

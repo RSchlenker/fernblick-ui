@@ -1,11 +1,18 @@
 <template>
   <div v-if="errorWhileLoadingBlog">The Blog you are looking for couldn't be found</div>
-  <div v-else class="blog-wrapper">
-    <h1>{{activeBlog.title}}</h1>
-    <hr/>
-    <blog-short-overview :short-information="activeBlog.shortoverview" />
-    <vue-markdown :source="activeBlog.text"></vue-markdown>
-    <about-us-footer/>
+  <div v-else>
+    <div class="back-button">
+      <a @click="$router.go(-1)">
+        <vue-material-icon name="arrow_back" :size="50"></vue-material-icon>
+      </a>
+    </div>
+    <div class="blog-wrapper">
+      <h1>{{activeBlog.title}}</h1>
+      <hr class="mb-0"/>
+      <blog-short-overview class="mb-3" :short-information="activeBlog.shortoverview" />
+      <vue-markdown :source="activeBlog.text"></vue-markdown>
+      <about-us-footer/>
+    </div>
   </div>
 </template>
 
@@ -40,9 +47,27 @@ li {
   line-height: 1.4em;
 }
 
+.back-button {
+  margin-left: -35px;
+  margin-top: -20px;
+  padding-bottom: 10px;
+  color: #93B5B3;
+}
+
 @media only screen and (min-width: 600px) {
   .blog-wrapper {
     padding: 0 10em;
+  }
+
+  .back-button {
+    position: absolute;
+    left: 80px;
+    top: 180px;
+    color: #93B5B3;
+  }
+  .back-button:hover {
+    color: #6b8d8b;
+    cursor: pointer;
   }
 }
 

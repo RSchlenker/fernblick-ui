@@ -9801,6 +9801,11 @@ vue-markdown@^2.2.4:
     markdown-it-task-lists "^2.0.1"
     markdown-it-toc-and-anchor "^4.1.2"
 
+vue-material-icon@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-material-icon/-/vue-material-icon-1.0.1.tgz#00f92bdaf654391450e8880fb0da8683ff09988e"
+  integrity sha512-4zxk/cJb1YWVJr6f7C2YyV26w5kKd3WETFygvK551rD7qBbMrRI3GDFAouUbMX/WrPGOJKtTun+gazGZTC0gFw==
+
 vue-material@^1.0.0-beta-11:
   version "1.0.0-beta-11"
   resolved "https://registry.yarnpkg.com/vue-material/-/vue-material-1.0.0-beta-11.tgz#11baf0cdb22a35d35859c619099d6c3cb3cc2cc3"
