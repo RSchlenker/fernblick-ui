@@ -19,6 +19,8 @@ Icon.Default.mergeOptions({
 Vue.component(VueMaterialIcon.name, VueMaterialIcon)
 Vue.config.productionTip = false
 
+Vue.prototype.$scrollToTop = () => window.scrollTo(0,0)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

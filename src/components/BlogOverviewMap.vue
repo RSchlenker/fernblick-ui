@@ -7,8 +7,8 @@
                 icon-url="https://fonts.gstatic.com/s/i/materialicons/radio_button_checked/v1/24px.svg?download=true"
                 :icon-anchor="staticAnchor">
             </l-icon>
-            <l-popup class="leaflet-popup-content-wrapper">
-              <router-link :to="{ name: 'Blog', params: { id: blog.id }}" class="blogmap__popup">
+            <l-popup>
+              <router-link :to="{ name: 'Blog', params: { id: blog.id }}" @click.native="$scrollToTop" class="blogmap__popup">
                 <img :src="'http://strapi.schlenker.io' + blog['preview-image'].url">
                 <div class="blogmap__popup__text">{{blog.title}}</div>
               </router-link>
@@ -77,12 +77,12 @@
   }
 
   .blogmap__popup__text {
-    /*width: 30px;*/
+    color: black;
   }
 
   .leaflet-popup-content-wrapper {
-    border-radius: 0;
-    padding-left: 20px;
-    padding-right: 20px;
+    border-radius: 0 !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 </style>

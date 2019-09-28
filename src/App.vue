@@ -30,4 +30,8 @@ Primary-lighter: #fbfcfb
 Accent-hard: #FF502F
 Accent: #CD5555
 */
+
+  a, a:hover {
+    text-decoration: none !important;
+  }
 </style>

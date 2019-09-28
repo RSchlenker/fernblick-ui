@@ -1,6 +1,6 @@
 <template>
   <div class="card m-2 mt-5 blog-preview-card">
-    <router-link :to="{ name: 'Blog', params: { id: blog.id }}">
+    <router-link :to="{ name: 'Blog', params: { id: blog.id }}" @click.native="$scrollToTop">
         <img :src="'http://strapi.schlenker.io' + blog['preview-image'].url" class="card-img-top img-fluid">
         <div class="card-body">
             <div class="flex-row">

@@ -2,7 +2,7 @@
   <div v-if="errorWhileLoadingBlog">The Blog you are looking for couldn't be found</div>
   <div v-else>
     <div class="back-button">
-      <a @click="$router.go(-1)">
+      <a @click="$router.go(-1); $scrollToTop()">
         <vue-material-icon name="arrow_back" :size="50"></vue-material-icon>
       </a>
     </div>
