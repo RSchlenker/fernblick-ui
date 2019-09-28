@@ -7,10 +7,10 @@
                 icon-url="https://fonts.gstatic.com/s/i/materialicons/radio_button_checked/v1/24px.svg?download=true"
                 :icon-anchor="staticAnchor">
             </l-icon>
-            <l-popup>
-              <router-link :to="{ name: 'Blog', params: { id: blog.id }}" class="blog-map-popup">
+            <l-popup class="leaflet-popup-content-wrapper">
+              <router-link :to="{ name: 'Blog', params: { id: blog.id }}" class="blogmap__popup">
                 <img :src="'http://strapi.schlenker.io' + blog['preview-image'].url">
-                <div class="blog-map-popup__text">{{blog.title}}</div>
+                <div class="blogmap__popup__text">{{blog.title}}</div>
               </router-link>
             </l-popup>
         </l-marker>
@@ -61,22 +61,22 @@
       height: 400px !important;
   }
 
-  .blog-map-popup {
+  .blogmap__popup {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .blog-map-popup img {
+  .blogmap__popup img {
     height: 70px;
     margin-right: 5px;
   }
 
-  .blog-map-popup__text, .blog-map-popup__text a:hover {
+  .blogmap__popup__text, .blogmap__popup__text a:hover {
     font-size: 1.2em;
   }
 
-  .blog-map-popup__text {
+  .blogmap__popup__text {
     /*width: 30px;*/
   }
 
