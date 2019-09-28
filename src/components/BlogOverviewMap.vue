@@ -1,11 +1,12 @@
 <template>
-    <l-map ref="blogmap" class="blogmap mt-4" :zoom="zoom" :center="center">
-        <l-tile-layer :url="url"></l-tile-layer>
-        <l-marker v-for="blog in blogs" :key="blog.id" :lat-lng="getLatLongFromBlog(blog)">
+    <l-map ref="blogmap" :zoom="zoom" :center="center">
+        <l-tile-layer :url="url" :options="mapOptions"></l-tile-layer>
+        <v-marker-cluster>
+          <l-marker v-for="blog in blogs" :key="blog.id" :lat-lng="getLatLongFromBlog(blog)">
             <l-icon
-                :icon-size="iconSize"
-                icon-url="https://fonts.gstatic.com/s/i/materialicons/radio_button_checked/v1/24px.svg?download=true"
-                :icon-anchor="staticAnchor">
+              :icon-size="iconSize"
+              icon-url="https://fonts.gstatic.com/s/i/materialicons/radio_button_checked/v1/24px.svg?download=true"
+              :icon-anchor="staticAnchor">
             </l-icon>
             <l-popup>
               <router-link :to="{ name: 'Blog', params: { id: blog.id }}" @click.native="$scrollToTop" class="blogmap__popup">
@@ -13,29 +14,41 @@
                 <div class="blogmap__popup__text">{{blog.title}}</div>
               </router-link>
             </l-popup>
-        </l-marker>
+          </l-marker>
+        </v-marker-cluster>
     </l-map>
 </template>
 <script>
   import 'leaflet/dist/leaflet.css'
+  import "leaflet.markercluster/dist/MarkerCluster.css"
+  import "leaflet.markercluster/dist/MarkerCluster.Default.css"
+
   import {LMap, LTileLayer, LMarker, LIcon, LPopup} from 'vue2-leaflet'
+  import Vue2LeafletMarkerCluster from 'vue2-leaflet-markercluster'
 
   export default {
     name: 'BlogOverviewMap',
-    components: {LMap, LTileLayer, LMarker, LIcon, LPopup},
+    components: {LMap, LTileLayer, LMarker, LIcon, LPopup, 'v-marker-cluster': Vue2LeafletMarkerCluster},
     props: {
       blogs: {
         required: true,
         default: [],
+      },
+      center: {
+        type: Array,
+        required: false,
+        default: [47.313220, -1.319482],
       }
     },
     data () {
       return {
         url: 'https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey=7dff32227b3b423bb5835d9e9d536c35',
         zoom: 3,
-        center: [47.313220, -1.319482],
         iconSize: [32, 32],
         staticAnchor: [16, 18],
+        mapOptions: {
+          noWrap: true,
+        }
       }
     },
     mounted () {
@@ -54,12 +67,6 @@
   }
 </script>
 <style>
-  .blogmap {
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 400px !important;
-  }
 
   .blogmap__popup {
     display: flex;

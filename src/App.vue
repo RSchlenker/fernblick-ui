@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <navbar />
-    <router-view class="m-5"/>
+    <router-view class=""/>
   </div>
 </template>
 
@@ -33,5 +33,14 @@ Accent: #CD5555
 
   a, a:hover {
     text-decoration: none !important;
+  }
+
+  p {
+    font-size: 1.3em;
+    line-height: 1.4em;
+  }
+  li {
+    font-size: 1.3em;
+    line-height: 1.4em;
   }
 </style>

@@ -6,7 +6,7 @@
         <vue-material-icon name="arrow_back" :size="50"></vue-material-icon>
       </a>
     </div>
-    <div class="blog-wrapper">
+    <div class="blog-wrapper m-5">
       <h1>{{activeBlog.title}}</h1>
       <hr class="mb-0"/>
       <blog-short-overview class="mb-3" :short-information="activeBlog.shortoverview" />
@@ -38,14 +38,6 @@ export default {
 </script>
 
 <style>
-p {
-  font-size: 1.3em;
-  line-height: 1.4em;
-}
-li {
-  font-size: 1.3em;
-  line-height: 1.4em;
-}
 
 .back-button {
   margin-left: -35px;

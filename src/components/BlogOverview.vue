@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="m-5">
     <h2>Unsere aktuellsten Blogs findest du hier</h2>
     <div class="preview-container">
       <blog-preview v-for="blog in blogs" :key="blog.id" :blog="blog"/>

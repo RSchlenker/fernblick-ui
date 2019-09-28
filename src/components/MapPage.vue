@@ -1,16 +1,13 @@
 <template>
-  <div class="m-5">
-    <h1>Willkommen bei Fernblick</h1>
-    <blog-overview-map class="home-blogmap mt-4" :blogs="blogs"/>
-  </div>
+  <blog-overview-map class="fullscreen-map" :blogs="blogs"/>
 </template>
 
 <script>
-  import BlogOverviewMap from './BlogOverviewMap'
+  import BlogOverviewMap from '@/components/BlogOverviewMap'
   import {mapGetters, mapActions} from 'vuex'
 
   export default {
-    name: 'Home',
+    name: 'MapPage',
     components: {BlogOverviewMap},
     mounted() {
       this.loadBlogs()
@@ -24,11 +21,13 @@
   }
 </script>
 
-<style>
-  .home-blogmap {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 400px !important;
-  }
+<style scoped>
+.fullscreen-map {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 8em;
+  height: 89%;
+   /*FIXME: How to set height dynamically*/
+}
 </style>
