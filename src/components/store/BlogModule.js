@@ -10,9 +10,7 @@ const strapi = new Strapi('http://strapi.schlenker.io')
 
 const mutations = {
   setBlogs (state, blogs) {
-    state.blogs = state.blogs.concat(blogs)
-    state.blogs = state.blogs.concat(blogs)
-    state.blogs = state.blogs.concat(blogs)
+    state.blogs = blogs
   },
   setActiveBlog (state, blog) {
     state.activeBlog = blog
