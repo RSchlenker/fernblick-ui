@@ -10,8 +10,16 @@
       <div class="blog-wrapper">
         <h1>{{activeBlog.title}}</h1>
         <hr class="mb-0"/>
-        <blog-short-overview class="mb-3" :short-information="activeBlog.shortoverview" />
+        <blog-short-overview
+          class="mb-3"
+          :showImages="activeBlog.pictures && activeBlog.pictures.length > 0"
+          :short-information="activeBlog.shortoverview"
+          @openGallery="index = 0"
+        />
         <vue-markdown :source="activeBlog.text"></vue-markdown>
+        <div v-if="activeBlog">
+          <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
+        </div>
         <about-us-footer/>
       </div>
     </div>
@@ -23,15 +31,32 @@ import VueMarkdown from 'vue-markdown'
 import { mapGetters, mapActions } from 'vuex'
 import BlogShortOverview from '@/components/BlogShortOverview'
 import AboutUsFooter from '@/components/AboutUsFooter'
+import VueGallerySlideshow from 'vue-gallery-slideshow'
 
 export default {
   name: 'BlogPage',
-  components: {AboutUsFooter, BlogShortOverview, VueMarkdown},
+  components: {AboutUsFooter, BlogShortOverview, VueMarkdown, VueGallerySlideshow},
   mounted () {
     this.loadBlog(this.$route.params.id)
   },
+  data () {
+      return {
+        index: null,
+      }
+  },
   computed: {
-    ...mapGetters(['activeBlog', 'errorWhileLoadingBlog'])
+    ...mapGetters(['activeBlog', 'errorWhileLoadingBlog']),
+    images() {
+      let images = []
+      if(!this.activeBlog._id) {
+        return images
+      }
+      console.log(this.activeBlog.pictures)
+      this.activeBlog.pictures.forEach((picture) => {
+        images.push('http://strapi.schlenker.io' + picture.url)
+      })
+      return images
+    },
   },
   methods: {
     ...mapActions(['loadBlog'])
@@ -62,6 +87,13 @@ export default {
   .back-button:hover {
     color: #6b8d8b;
     cursor: pointer;
+  }
+  .vgs__container {
+    margin-top: 10% !important;
+    border-radius: 0 !important;
+  }
+  .vgs__gallery__container__img {
+    border-radius: 0 !important;
   }
 }
 
