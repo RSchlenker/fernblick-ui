@@ -1,11 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark navbar-large navigation">
     <router-link class="navbar-brand" to="/"><h2>Fernblick</h2></router-link>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <router-link class="nav-link" to="/blogs">Blogs</router-link>
@@ -16,7 +12,6 @@
           <vue-material-icon name="public" :size="80"></vue-material-icon>
         </router-link>
       </div>
-    </div>
   </nav>
 </template>
 
