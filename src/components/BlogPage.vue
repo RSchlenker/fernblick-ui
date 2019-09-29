@@ -1,17 +1,19 @@
 <template>
   <div v-if="errorWhileLoadingBlog">The Blog you are looking for couldn't be found</div>
   <div v-else>
-    <div class="back-button">
-      <a @click="$router.go(-1); $scrollToTop()">
-        <vue-material-icon name="arrow_back" :size="50"></vue-material-icon>
-      </a>
-    </div>
-    <div class="blog-wrapper m-5">
-      <h1>{{activeBlog.title}}</h1>
-      <hr class="mb-0"/>
-      <blog-short-overview class="mb-3" :short-information="activeBlog.shortoverview" />
-      <vue-markdown :source="activeBlog.text"></vue-markdown>
-      <about-us-footer/>
+    <div class="m-5">
+      <div class="back-button">
+        <a @click="$router.go(-1); $scrollToTop()">
+          <vue-material-icon name="arrow_back" :size="50"></vue-material-icon>
+        </a>
+      </div>
+      <div class="blog-wrapper">
+        <h1>{{activeBlog.title}}</h1>
+        <hr class="mb-0"/>
+        <blog-short-overview class="mb-3" :short-information="activeBlog.shortoverview" />
+        <vue-markdown :source="activeBlog.text"></vue-markdown>
+        <about-us-footer/>
+      </div>
     </div>
   </div>
 </template>
