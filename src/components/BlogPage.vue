@@ -51,7 +51,6 @@ export default {
       if(!this.activeBlog._id) {
         return images
       }
-      console.log(this.activeBlog.pictures)
       this.activeBlog.pictures.forEach((picture) => {
         images.push('http://strapi.schlenker.io' + picture.url)
       })
