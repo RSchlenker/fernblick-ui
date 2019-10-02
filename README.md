@@ -1,6 +1,6 @@
 # ui
 
-> Fernblick ui
+> Brimborium ui
 
 ## Build Setup
 

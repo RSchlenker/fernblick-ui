@@ -1,10 +1,10 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark navbar-large navigation">
-    <router-link class="navbar-brand" to="/"><h2>Fernblick</h2></router-link>
+    <router-link class="navbar-brand" to="/"><h2>Brimborium</h2></router-link>
 
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <router-link class="nav-link" to="/blogs">Blogs</router-link>
+          <router-link class="nav-link" to="/blogs">Blog</router-link>
         </li>
       </ul>
       <div class="float-right">
