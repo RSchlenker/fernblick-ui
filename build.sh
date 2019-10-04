@@ -14,8 +14,6 @@ docker build -t brimborium-ui:$COMMIT_SHA .;
 docker stop $(docker ps -q -f name=brimborium-ui-);
 
 docker run -d -p 0.0.0.0:7890:80 \
-  --label="traefik.http.routers.brimborium.rule=Host(\`www.brimborium.org\`)"\
-  --label="traefik.http.routers.brimborium.rule=Host(\`brimborium.org\`)"\
+  --label="traefik.http.routers.brimborium.rule=Host(\`www.brimborium.org,brimborium.org\`)"\
   --name=brimborium-ui-$RAND_TAG_NAME \
   brimborium-ui:$COMMIT_SHA;
-
