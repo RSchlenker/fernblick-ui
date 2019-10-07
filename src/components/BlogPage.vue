@@ -9,6 +9,7 @@
       </div>
       <div class="blog-wrapper">
         <h1>{{activeBlog.title}}</h1>
+        <h4 class="text-muted sub-title">{{activeBlog['sub-title']}}</h4>
         <hr class="mb-0"/>
         <blog-short-overview
           class="mb-3"
@@ -17,6 +18,11 @@
           @openGallery="index = 0"
         />
         <vue-markdown :source="activeBlog.text"></vue-markdown>
+        <template v-if="activeBlog.accesses.length > 0">
+          <h1>Anfahrt</h1>
+          <vue-markdown :source="activeBlog['access-intro-text']"></vue-markdown>
+          <access-block v-for="accessInfo in activeBlog.accesses" :access="accessInfo" :key="accessInfo._id" class="mb-3 mt-3"/>
+        </template>
         <div v-if="activeBlog">
           <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
         </div>
@@ -27,15 +33,16 @@
 </template>
 
 <script>
-import VueMarkdown from 'vue-markdown'
-import { mapGetters, mapActions } from 'vuex'
-import BlogShortOverview from '@/components/BlogShortOverview'
-import AboutUsFooter from '@/components/AboutUsFooter'
-import VueGallerySlideshow from 'vue-gallery-slideshow'
+  import VueMarkdown from 'vue-markdown'
+  import {mapActions, mapGetters} from 'vuex'
+  import BlogShortOverview from '@/components/BlogShortOverview'
+  import AboutUsFooter from '@/components/AboutUsFooter'
+  import VueGallerySlideshow from 'vue-gallery-slideshow'
+  import AccessBlock from './AccessBlock'
 
-export default {
+  export default {
   name: 'BlogPage',
-  components: {AboutUsFooter, BlogShortOverview, VueMarkdown, VueGallerySlideshow},
+  components: {AccessBlock, AboutUsFooter, BlogShortOverview, VueMarkdown, VueGallerySlideshow},
   mounted () {
     this.loadBlog(this.$route.params.id)
   },
@@ -112,4 +119,9 @@ export default {
 hr {
   border-color: #CD5555;
 }
+
+.sub-title {
+  font-weight: lighter;
+}
+
 </style>
