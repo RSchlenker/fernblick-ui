@@ -1,23 +1,25 @@
 <template>
     <div class="access-block">
         <div class="access-icon">
-          <vue-material-icon :name="access.icon" :size="80"></vue-material-icon>
+          <vue-material-icon :name="access.icon" :size="100"></vue-material-icon>
         </div>
-      <h3 class="mt-4">{{access['source']}}</h3>
-      <div class="travel-info">
-        <div class="travel-info__text">{{access['travel-time-1']}}</div>
-        <h1 class="access-arrow"><span>&#8594;</span></h1>
-        <div class="travel-info__note">{{access['notes-1']}}</div>
-      </div>
-      <h3 class="mt-4">{{access['destination-1']}}</h3>
-      <template v-if="access['destination-2']">
+      <div class="travel-info__text-block">
+        <h3>{{access['source']}}</h3>
         <div class="travel-info">
-          <div class="travel-info__text">{{access['travel-time-2']}}</div>
+          <div class="travel-info__text">{{access['travel-time-1']}}</div>
           <h1 class="access-arrow"><span>&#8594;</span></h1>
-          <div class="travel-info__note">{{access['notes-2']}}</div>
+          <div class="travel-info__note">{{access['notes-1']}}</div>
         </div>
-        <h3 class="mt-4">{{access['destination-2']}}</h3>
-      </template>
+        <h3>{{access['destination-1']}}</h3>
+        <template v-if="access['destination-2']">
+          <div class="travel-info">
+            <div class="travel-info__text">{{access['travel-time-2']}}</div>
+            <h1 class="access-arrow"><span>&#8594;</span></h1>
+            <div class="travel-info__note">{{access['notes-2']}}</div>
+          </div>
+          <h3>{{access['destination-2']}}</h3>
+        </template>
+      </div>
       <div class="access__tips__wrapper"></div>
       <div v-if="access['tipp-1']" class="access__tips">
         <ul>
@@ -47,7 +49,7 @@
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     background-color: #6b8d8b;
-    height: 10em;
+    height: 14em;
     padding: 1em;
     color: white;
   }
@@ -75,7 +77,15 @@
 
   .travel-info {
     justify-content: center;
-    width: 10%;
+    width: 15%;
+  }
+
+  .travel-info__text-block {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    margin-top: -0.5em;
   }
 
   .travel-info__text {
@@ -88,6 +98,8 @@
     justify-content: center;
     display: flex;
     width: 100%;
+    height: 1em;
+    text-align: center;
     margin-top: -1.6em;
   }
 
@@ -97,7 +109,7 @@
     margin-right: 20px;
     display: flex;
     float: right;
-    width: 20em;
+    width: 25em;
   }
 
   .access__tips__wrapper {

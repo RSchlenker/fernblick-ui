@@ -21,7 +21,7 @@
         <template v-if="activeBlog.accesses.length > 0">
           <h1>Anfahrt</h1>
           <vue-markdown :source="activeBlog['access-intro-text']"></vue-markdown>
-          <access-block v-for="accessInfo in activeBlog.accesses" :access="accessInfo" :key="accessInfo._id" class="mb-3 mt-3"/>
+          <access-block v-for="accessInfo in activeBlog.accesses" :access="accessInfo" :key="accessInfo._id" class="mb-5   mt-5"/>
         </template>
         <div v-if="activeBlog">
           <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
