@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark navbar-large navigation">
-    <router-link class="navbar-brand" to="/"><h2>Brimborium</h2></router-link>
+    <router-link class="navbar-brand" to="/"><h2>herumschlenkern</h2></router-link>
 
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -24,6 +24,7 @@ export default {
 <style>
 .navigation {
   background-color: #93B5B3 !important;
-  height: 8em;
+  height: 12vh;
+  z-index: 9999;
 }
 </style>
