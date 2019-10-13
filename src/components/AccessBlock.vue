@@ -31,7 +31,7 @@
         </div>
       </div>
       <transition name="fade">
-        <div class="access-text-content" v-show="showText">
+        <div class="access-text-content" v-show="showText" @click="showText = !showText">
           <vue-markdown :source="access['text']"/>
         </div>
       </transition>

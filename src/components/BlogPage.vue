@@ -29,6 +29,9 @@
           <activity-overview :activities="activeBlog.activities"/>
           <vue-markdown :source="activeBlog['activity-text']" class="mt-4"/>
         </template>
+        <template v-if="activeBlog.tips.length > 0">
+          <tips-block :tips="activeBlog.tips"/>
+        </template>
         <div v-if="activeBlog">
           <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
         </div>
@@ -46,10 +49,13 @@
   import VueGallerySlideshow from 'vue-gallery-slideshow'
   import AccessBlock from './AccessBlock'
   import ActivityOverview from './ActivityOverview'
+  import TipsBlock from './TipsBlock'
 
   export default {
   name: 'BlogPage',
-  components: {ActivityOverview, AccessBlock, AboutUsFooter, BlogShortOverview, VueMarkdown, VueGallerySlideshow},
+  components: {
+    TipsBlock,
+    ActivityOverview, AccessBlock, AboutUsFooter, BlogShortOverview, VueMarkdown, VueGallerySlideshow},
   mounted () {
     this.loadBlog(this.$route.params.id)
   },
