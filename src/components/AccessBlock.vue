@@ -1,8 +1,9 @@
 <template>
-    <div class="access-block">
-        <div class="access-icon">
-          <vue-material-icon :name="access.icon" :size="100"></vue-material-icon>
-        </div>
+  <div class="access-block-wrapper">
+    <div class="access-block" @click="showText = !showText">
+      <div class="access-icon">
+        <vue-material-icon :name="access.icon" :size="100"></vue-material-icon>
+      </div>
       <div class="travel-info__text-block">
         <h3>{{access['source']}}</h3>
         <div class="travel-info">
@@ -29,15 +30,29 @@
         </ul>
       </div>
     </div>
+    <transition name="fade">
+      <div class="access-text-content" v-show="showText">
+        <vue-markdown :source="access['text']"/>
+      </div>
+    </transition>
+  </div>
 </template>
 <script>
+  import VueMarkdown from 'vue-markdown'
+
   export default {
     name: 'AccessBlock',
+    components: {VueMarkdown},
     props: {
       access: {
         type: Object,
         required: true,
       },
+    },
+    data () {
+      return {
+        showText: false,
+      }
     },
   }
 </script>
@@ -52,6 +67,23 @@
     height: 14em;
     padding: 1em;
     color: white;
+  }
+
+  .access-text-content {
+    overflow: hidden;
+    background-color: #6b8d8b;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    transition: max-height 0.2s ease-out;
+    padding: 2em 12em;
+    color: white;
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: height 0.2s ease-out;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    height: 0;
   }
 
 @media only screen and (min-width: 1000px) {
