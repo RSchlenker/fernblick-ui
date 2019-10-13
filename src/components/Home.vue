@@ -37,24 +37,61 @@
 </script>
 
 <style>
-  .home-blogmap {
-    height: 600px !important;
-    width: 100% !important;
+  @media only screen and (min-width: 600px) {
+    .home-title {
+      font-size: 4em;
+    }
+
+    .home--intro-text {
+      width: 50%;
+      margin-top: 3em;
+    }
+
+    .map-section-description {
+      height: 3em;
+    }
+
+    .home-blogmap {
+      height: 600px !important;
+    }
   }
-  .home-blogmap-wrapper {
-    margin-top: 100vh;
-    margin-bottom: 200px;
-    margin-left: -3vw;
-    margin-right: -3vw;
-    background-color: #82aa9f;
+
+  .home-title {
+    font-size: 3em;
   }
+
+  .home--intro-text {
+    font-size: 1.5em;
+    margin-top: 30em;
+  }
+
+  .parallax-background-img {
+    height: 100vh;
+    margin-top: -5em;
+  }
+
   .map-section-description {
     padding-left: 2em;
-    height: 3em;
+    font-size: 1.4em;
+    height: 4em;
     color: white;
     display: flex;
     align-items: center;
   }
+
+  .home-blogmap-wrapper {
+    margin-top: 100vh;
+    margin-bottom: 100px;
+    margin-left: -3vw;
+    margin-right: -3vw;
+    background-color: #82aa9f;
+  }
+
+  .home-blogmap {
+    height: 400px !important;
+    width: 100% !important;
+  }
+
   .parallax {
     perspective: 1px;
     height: 88vh;
@@ -75,16 +112,5 @@
     transform: translateZ(-2px) scale(3);
     z-index: -500;
     margin-top: 300px;
-  }
-  .parallax-background-img {
-    height: 100vh;
-  }
-  .home-title {
-    font-size: 4em;
-  }
-  .home--intro-text {
-    width: 50%;
-    font-size: 1.5em;
-    margin-top: 3em;
   }
 </style>
