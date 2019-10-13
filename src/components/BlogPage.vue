@@ -108,8 +108,7 @@
 }
 
 .blog-wrapper ul li::before {
-  content: ">";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: #CD5555; /* Change the color */
+  content: "-";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
   font-weight: bold; /* If you want it to be bold */
   display: inline-block; /* Needed to add space between the bullet and the text */
   width: 1em; /* Also needed for space (tweak if needed) */

@@ -22,7 +22,6 @@
             <h3>{{access['destination-2']}}</h3>
           </template>
         </div>
-        <div class="access__tips__wrapper"></div>
         <div v-if="access['tipp-1']" class="access__tips">
           <ul>
             <li>{{access['tipp-1']}}</li>
@@ -70,6 +69,20 @@
       </div>
       <transition name="fade">
         <div class="access-text-content" v-show="showText">
+          <hr>
+          <div class="tips-mobile">
+              <div v-if="access['tipp-1']" class="access__tips">
+                <ul>
+                  <li>{{access['tipp-1']}}</li>
+                  <li v-if="access['tipp-2']">{{access['tipp-2']}}</li>
+                  <li v-if="access['tipp-3']">{{access['tipp-3']}}</li>
+                </ul>
+              </div>
+            <div class="tips-right">
+              <vue-material-icon name="info" :size="45"/>
+            </div>
+          </div>
+          <hr>
           <vue-markdown :source="access['text']"/>
           <div class="toggle-tile-arrow">
             <vue-material-icon v-if="showText" name="keyboard_arrow_up" :size="50" />
@@ -186,6 +199,31 @@
     color: #9bbcba;
   }
 
+  .mobile-only hr {
+    border-color: white;
+  }
+
+  .tips-mobile {
+    display: flex;
+  }
+
+  .tips-mobile ul {
+    margin: 5px 0;
+  }
+
+  .tips-mobile .access__tips {
+    width: 90%;
+    margin-left: -10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .tips-right {
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+  }
+
 @media only screen and (min-width: 1000px) {
 
   .mobile-only {
@@ -252,21 +290,8 @@
     width: 25em;
   }
 
-  .access__tips__wrapper {
-    float: right;
-    flex-grow: 1;
-  }
-
   .access__tips li {
     font-size: 1.2em;
-  }
-
-  .access__tips ul li::before {
-    content: ">"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    color: white; /* Change the color */
-    display: inline-block; /* Needed to add space between the bullet and the text */
-    width: 1em; /* Also needed for space (tweak if needed) */
-    margin-left: -1em; /* Also needed for space (tweak if needed) */
   }
 }
 </style>
