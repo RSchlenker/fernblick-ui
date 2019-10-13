@@ -37,25 +37,6 @@
 </script>
 
 <style>
-  @media only screen and (min-width: 600px) {
-    .home-title {
-      font-size: 4em;
-    }
-
-    .home--intro-text {
-      width: 50%;
-      margin-top: 3em;
-    }
-
-    .map-section-description {
-      height: 3em;
-    }
-
-    .home-blogmap {
-      height: 600px !important;
-    }
-  }
-
   .home-title {
     font-size: 3em;
   }
@@ -112,5 +93,24 @@
     transform: translateZ(-2px) scale(3);
     z-index: -500;
     margin-top: 300px;
+  }
+
+  @media only screen and (min-width: 600px) {
+    .home-title {
+      font-size: 4em;
+    }
+
+    .home--intro-text {
+      width: 50%;
+      margin-top: 3em;
+    }
+
+    .map-section-description {
+      height: 3em;
+    }
+
+    .home-blogmap {
+      height: 600px !important;
+    }
   }
 </style>
