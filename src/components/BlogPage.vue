@@ -23,6 +23,12 @@
           <vue-markdown :source="activeBlog['access-intro-text']"></vue-markdown>
           <access-block v-for="accessInfo in activeBlog.accesses" :access="accessInfo" :key="accessInfo._id" class="mb-4   mt-4"/>
         </template>
+        <template v-if="activeBlog.activities.length > 0">
+          <h1 class="mt-5">Aktivitäten</h1>
+          <vue-markdown :source="activeBlog['activity-intro-text']"/>
+          <activity-overview :activities="activeBlog.activities"/>
+          <vue-markdown :source="activeBlog['activity-text']" class="mt-4"/>
+        </template>
         <div v-if="activeBlog">
           <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
         </div>
@@ -39,10 +45,11 @@
   import AboutUsFooter from '@/components/AboutUsFooter'
   import VueGallerySlideshow from 'vue-gallery-slideshow'
   import AccessBlock from './AccessBlock'
+  import ActivityOverview from './ActivityOverview'
 
   export default {
   name: 'BlogPage',
-  components: {AccessBlock, AboutUsFooter, BlogShortOverview, VueMarkdown, VueGallerySlideshow},
+  components: {ActivityOverview, AccessBlock, AboutUsFooter, BlogShortOverview, VueMarkdown, VueGallerySlideshow},
   mounted () {
     this.loadBlog(this.$route.params.id)
   },
