@@ -8,7 +8,7 @@
         </a>
       </div>
       <div class="blog-wrapper">
-        <h1>{{activeBlog.title}}</h1>
+        <h1 class="blog-title">{{activeBlog.title}}</h1>
         <h4 class="text-muted sub-title">{{activeBlog['sub-title']}}</h4>
         <hr class="mb-0"/>
         <blog-short-overview
@@ -19,12 +19,12 @@
         />
         <vue-markdown :source="activeBlog.text"></vue-markdown>
         <template v-if="activeBlog.accesses.length > 0">
-          <h1>Anfahrt</h1>
+          <section-title>Anfahrt</section-title>
           <vue-markdown :source="activeBlog['access-intro-text']"></vue-markdown>
           <access-block v-for="accessInfo in activeBlog.accesses" :access="accessInfo" :key="accessInfo._id" class="mb-4   mt-4"/>
         </template>
         <template v-if="activeBlog.activities.length > 0">
-          <h1 class="mt-5">Aktivitäten</h1>
+          <section-title>Aktivitäten</section-title>
           <vue-markdown :source="activeBlog['activity-intro-text']"/>
           <activity-overview :activities="activeBlog.activities"/>
           <vue-markdown :source="activeBlog['activity-text']" class="mt-4"/>
@@ -50,10 +50,12 @@
   import AccessBlock from './AccessBlock'
   import ActivityOverview from './ActivityOverview'
   import TipsBlock from './TipsBlock'
+  import SectionTitle from './SectionTitle'
 
   export default {
   name: 'BlogPage',
   components: {
+    SectionTitle,
     TipsBlock,
     ActivityOverview, AccessBlock, AboutUsFooter, BlogShortOverview, VueMarkdown, VueGallerySlideshow},
   mounted () {
@@ -134,6 +136,10 @@ hr {
 
 .sub-title {
   font-weight: lighter;
+}
+
+.blog-title {
+  font-size: 4em;
 }
 
 </style>
