@@ -7,7 +7,7 @@
         </li>
       </ul>
       <div class="float-right">
-        <router-link to="/map" class="navbar-brand">
+        <router-link to="/map" class="navbar-brand desktop-only">
           <vue-material-icon name="public" :size="80"></vue-material-icon>
         </router-link>
       </div>

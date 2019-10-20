@@ -165,10 +165,6 @@
     padding: 2em 4em;
   }
 
-  .desktop-only {
-    display: none;
-  }
-
   .access-icon-mobile {
     width: 30%;
     padding-left: 3%;
@@ -225,14 +221,6 @@
   }
 
 @media only screen and (min-width: 1000px) {
-
-  .mobile-only {
-    display: none;
-  }
-
-  .desktop-only {
-    display: unset;
-  }
 
   .access-block {
     height: 10em;

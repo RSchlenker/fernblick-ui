@@ -43,4 +43,20 @@ Accent: #CD5555
     font-size: 1.3em;
     line-height: 1.4em;
   }
+
+.desktop-only {
+  display: none;
+}
+
+@media only screen and (min-width: 1000px) {
+
+  .mobile-only {
+    display: none;
+  }
+
+  .desktop-only {
+    display: unset;
+  }
+
+}
 </style>

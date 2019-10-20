@@ -33,11 +33,7 @@
 
 .activities-wrapper {
   display: flex;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  background-color: #6b8d8b;
   padding: 2em;
-  color: white;
   align-items: center;
   flex-wrap: wrap;
   flex-direction: row;
@@ -50,6 +46,7 @@
   margin: 2em;
   padding: 10px;
   text-align: center;
+  border: 1px solid black;
 }
 
 .activity-icon {
